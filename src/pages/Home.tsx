@@ -2,8 +2,8 @@ import React from "react";
 
 const Home: React.FC = () => {
   return (
-    <div className="h-screen p-10 shadow-xl">
-      <div className="relative bg-yellow-50 w-full h-full rounded-lg">
+    <div className="h-screen p-10">
+      <div className="relative bg-yellow-50 w-full h-full rounded-lg border border-yellow-100 shadow-xl">
         <div className="absolute top-1/3 -mt-10 w-full">
           <h1 className="text-center text-5xl font-light mb-9">
             React-template started with Vite by{" "}
