@@ -1,59 +1,40 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
+function generateKeys(length, indicator, multi = 10, negative = false) {
+  const obj = {};
 
-const buildList = (length, indicator, multi = 10) => {
-  const json = Array(length)
-    .fill(0)
-    .reduce((prev, current, index) => {
-      let str = prev;
-      index++;
+  for (let i = 0; i < length; i++) {
+    obj[i * multi] = `${i * multi}${indicator}`;
+    if (negative) obj[`-${i * multi}`] = `-${i * multi}${indicator}`;
+  }
 
-      if (index === 1) str = "{";
-      str += `\"${index * multi}\": \"${index * multi}${indicator}\"`;
-
-      if (index === length) return str + "}";
-      else return str + ",";
-    }, "");
-
-  return JSON.parse(json);
-};
+  return obj;
+}
 
 module.exports = {
-  purge: ["./src/**/*.{js,jsx,ts,tsx}", "./index.html"],
-  darkMode: false,
+  mode: "jit",
+  content: ["./src/pages/**/*.{js,ts,jsx,tsx}", "./src/components/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    colors: {
-      ...defaultTheme.colors,
-      success: "#1abc9c",
-      danger: "#e74c3c",
-      warning: "#fcbf00",
-    },
-    minWidth: {
-      ...buildList(40, "px", 50),
-      full: "100%",
-      screen: "100vw",
-      unset: "unset",
-    },
-    maxWidth: {
-      ...buildList(40, "px", 50),
-      full: "100%",
-      screen: "100vw",
-      unset: "unset",
-    },
-    minHeight: {
-      ...buildList(40, "px", 50),
-      full: "100%",
-      screen: "100vh",
-      unset: "unset",
-    },
-    maxHeight: {
-      ...buildList(40, "px", 50),
-      full: "100%",
-      screen: "100vh",
-      unset: "unset",
+    extend: {
+      spacing: {
+        ...generateKeys(50, "px", 50),
+        unset: "unset",
+        full: "100%",
+      },
+      zIndex: {
+        ...generateKeys(11, "", 10, true),
+      },
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ["checked", "disabled", "group-focus"],
+      backgroundOpacity: ["group-focus"],
+      borderWidth: ["group-focus"],
+      opacity: ["group-focus"],
+      borderColor: ["checked", "disabled"],
+      boxShadow: ["active"],
+      rotate: ["group-focus"],
+      inset: ["hover", "focus", "group-focus"],
+    },
   },
   plugins: [],
 };

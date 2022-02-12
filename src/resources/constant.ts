@@ -1,5 +1,7 @@
-import { menu as menuType, route } from "./types";
+import Home from "pages/Home";
+import Error404 from "pages/Error404";
 
-import Home from "../pages/Home";
-
-export const routes: Array<route> = [{ path: "/", exact: true, component: Home }];
+export const routes: route[] = [
+  { path: "/", component: Home },
+  { path: "/", component: Error404 },
+];
