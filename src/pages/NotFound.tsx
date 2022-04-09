@@ -1,8 +1,8 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 
-const Error404: React.FC = () => {
+const NotFound: React.FC = () => {
   return <Navigate to="/" />;
 };
 
-export default Error404;
+export default NotFound;

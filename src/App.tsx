@@ -1,19 +1,16 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { routes } from "resources/constant";
-import Layout from "components/layouts";
+import routes from "resources/routes";
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          {routes.map((route) => (
-            <Route path={route.path} element={<route.component />} />
-          ))}
-        </Routes>
-      </Layout>
+      <Routes>
+        {Object.entries(routes).map(([name, route], index) => (
+          <Route key={`${name}-${index}`} path={route.path} element={<route.component />} />
+        ))}
+      </Routes>
     </BrowserRouter>
   );
 };
