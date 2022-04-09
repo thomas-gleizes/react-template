@@ -24,7 +24,7 @@
       "context/*": ["context/*"],
       "services/*": ["services/*"],
       "utils/*": ["utils/*"],
-      "ressources/*": ["ressources/*"],
+      "resources/*": ["resources/*"],
       "assets/*": ["assets/*"]
     }
   },

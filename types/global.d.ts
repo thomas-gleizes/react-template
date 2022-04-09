@@ -1,10 +1,14 @@
 declare type Component<P = {}> = React.FunctionComponent<P>
 
-declare type route = {
+declare type Page = Component
+
+declare type Route = {
   path: string;
-  component: Component;
+  component: Page;
 };
 
-declare type routes = {
-  [key: string]: route;
+declare type Routes = {
+  [key: string]: Route;
 };
+
+declare type RNode = React.ReactNode

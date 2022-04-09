@@ -1,6 +1,6 @@
 import React from "react";
 
-const Footer: React.FC = () => {
+const Footer: Component = () => {
   return <footer />;
 };
 

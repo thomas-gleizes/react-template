@@ -1,6 +1,6 @@
 import React from "react";
 
-const Home: React.FC = () => {
+const Home: Page = () => {
   return (
     <div className="h-screen p-10">
       <div className="relative bg-yellow-50 w-full h-full rounded-lg border border-yellow-100 shadow-xl">
